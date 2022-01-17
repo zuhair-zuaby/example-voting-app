@@ -1,7 +1,7 @@
 Example Voting App
 
 
-Test 01, 
+Test 01 for pull request and merge it to master then see the ci pipeline, 
 =========
 
 Getting started
