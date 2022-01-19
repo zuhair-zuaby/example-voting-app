@@ -1,32 +1,32 @@
 
 pipeline {
- agent any
- tools{
- maven 'Maven 3.8.4'
- }
- stages{
- stage("build"){
- steps{
- echo 'Compiling worker app with pull request'
- dir('worker'){
- sh 'mvn compile'
- }
- }
- }
-stage("test"){
- steps{
- echo 'Running Unit Tets on worker app'
- }
- }
- stage("package"){
- steps{
- echo 'Packaging worker app'
- }
- }
- }
- post{
- always{
- echo 'Building multibranch pipeline for worker is completed..'
- }
- }
+    agent any
+    tools {
+        maven 'Maven 3.8.4'
+    }
+    stages {
+        stage('build') {
+            steps {
+                echo 'Compiling worker app with pull request'
+                dir('worker') {
+                    sh 'mvn compile'
+                }
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'Running Unit Tets on worker app'
+            }
+        }
+        stage('package') {
+            steps {
+                echo 'Packaging worker app'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Building multibranch pipeline for worker is completed..'
+        }
+    }
 }
